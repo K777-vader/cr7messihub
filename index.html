@@ -290,12 +290,12 @@
     <!-- STOREFRONT -->
     <div class="main">
       <div class="store-section" id="shop">
-        <div class="store-title">THE G.O.A.T. <span>STORE</span></div>
+        <div class="store-title">THE G.O.A.T. <span 
+  style="color:var(--ronaldo-red)">STORE</span></div>
         <div class="store-sub">Digital tools for athletes, coaches, and
   fans of the beautiful game.</div>
 
         <div class="product-grid">
-          <!-- PRODUCT 1 -->
           <div class="product-card" onclick="checkout('Athlete
   Performance Pack', '29.00')">
             <div class="product-img" style="background:
@@ -309,7 +309,6 @@
               <button class="btn-buy">Get Now</button>
             </div>
           </div>
-          <!-- PRODUCT 2 -->
           <div class="product-card" onclick="checkout('Tactical Session
   Templates', '49.00')">
             <div class="product-img" style="background:
@@ -323,7 +322,6 @@
               <button class="btn-buy">Get Now</button>
             </div>
           </div>
-          <!-- PRODUCT 3 -->
           <div class="product-card" onclick="checkout('8K Legend
   Wallpapers', '0.00')">
             <div class="product-img" style="background:
@@ -338,7 +336,6 @@
   style="background:#16a34a">Download</button>
             </div>
           </div>
-          <!-- PRODUCT 4 -->
           <div class="product-card" onclick="checkout('Champions Mindset
    Course', '99.00')">
             <div class="product-img" style="background:
@@ -395,44 +392,40 @@
   </footer>
 
   <script>
-  // --- SALES LOGIC ---
   function checkout(name, price) {
+    console.log("Checkout triggered: " + name);
     if(price === '0.00') {
-      alert("🚀 Starting FREE download for: " + name);
+      alert("🚀 STARTING FREE DOWNLOAD\n\nProduct: " + name);
     } else {
-      alert("💳 Redirecting to secure checkout for " + name + " -
-  Amount: $" + price);
+      alert("💳 SECURE CHECKOUT\n\nProduct: " + name + "\nAmount: $" +
+  price + "\n\nRedirecting to payment gateway...");
     }
   }
 
-  // --- AI OPERATOR ENGINE ---
   const AI_DATA = {
     articles: [
-      "THE 2026 DEBATE: Why Ronaldo's level of fitness at 40+ is the
-  only blueprint for longevity in professional sports. Analyzing the
-  sleep and nutrition cycles... [READ MORE]",
-      "MADRID LEGACY: How the 3-peat UCL run created the modern
-  'Super-Club' mentality. A tactical breakdown of the 4-3-3 evolution.
-  [FULL ANALYSIS]",
-      "SENSATIONAL stats: New data shows that Messi's pass completion in
-   the final third is still the highest in Europe. [DATA DIVE]"
+      "THE 2026 DEBATE: Why Ronaldo's discipline is the blueprint for
+  longevity. [READ MORE]",
+      "MADRID LEGACY: How the 3-peat UCL run changed football. [FULL
+  ANALYSIS]",
+      "SENSATIONAL stats: Messi's pass completion in the final third is
+  still elite. [DATA DIVE]"
     ],
     ads: [
-      "🚀 STOP SCROLLING! Want to train like a G.O.A.T.? Get the
-  Professional Performance HTML5 Pack today. ⚡ 60% OFF! [LINK]",
+      "🚀 STOP SCROLLING! Want to train like a G.O.A.T.? Get the Pro
+  Pack today. ⚡ 60% OFF! [LINK]",
       "🎓 FROM AMATEUR TO ELITE. Unlock the 'Mindset of Champions'
-  Course. Learn the psychology of winners. Start now! 🏆",
+  Course. Start now! 🏆",
       "🖼️  FREE: Upgrade your phone to 8K Glory. Get the G.O.A.T.
-  Wallpaper Collection for FREE. Instant delivery. ⚽"
+  Wallpaper Collection. ⚽"
     ],
     affiliates: [
       "SNEAKER ALERT: These aren't just boots; they're precision
-  weapons. Engineered for explosive speed. Shop the Nike Elite
-  Collection. 👟",
+  weapons. Shop the Nike Elite Collection. 👟",
       "ELITE RECOVERY: Pro athletes don't just train; they recover. Get
-  the high-compression gear used by the Madrid squad. 💊",
+  the Madrid recovery gear. 💊",
       "TECH UPGRADE: Track every sprint and pass. The latest wearable
-  tech for soccer players. Analyze your game. 📊"
+  tech for soccer players. 📊"
     ]
   };
 
@@ -445,11 +438,10 @@
   async function runAI(type) {
     const consoleEl = document.getElementById('aiConsole');
     const statusEl = document.getElementById('aiStatus');
-
     statusEl.innerText = "PROCESSING...";
     statusEl.style.color = "var(--madrid-gold)";
-    consoleEl.innerText = "AI Agent is analyzing market trends and
-  synthesizing conversion-ready content...";
+    consoleEl.innerText = "AI Agent is synthesizing conversion-ready
+  content...";
 
     await new Promise(r => setTimeout(r, 1500));
 
@@ -457,45 +449,42 @@
       const item = AI_DATA.articles[Math.floor(Math.random() *
   AI_DATA.articles.length)];
       consoleEl.innerText = `[AI CONTENT GENERATED]\n\nTITLE: The 2026
-  G.O.A.T. Report\n\n${item}\n\nSEO TAGS: #FootballTraining #CR7 #Messi
-  #RealMadrid #ProCoaching`;
+  G.O.A.T. Report\n\n${item}\n\nSEO TAGS: #FootballTraining #CR7
+  #Messi`;
     } else if (type === 'ad') {
       const item = AI_DATA.ads[Math.floor(Math.random() *
   AI_DATA.ads.length)];
-      consoleEl.innerText = `[AI AD ARCHITECT]\n\nPLATFORM: TikTok /
-  Instagram Reels\n\nHOOK: ${item}\n\nCTA: CLICK LINK IN BIO.`;
+      consoleEl.innerText = `[AI AD ARCHITECT]\n\nPLATFORM:
+  TikTok/Instagram\n\nHOOK: ${item}\n\nCTA: CLICK LINK IN BIO.`;
     } else if (type === 'affiliate') {
       const item = AI_DATA.affiliates[Math.floor(Math.random() *
   AI_DATA.affiliates.length)];
       consoleEl.innerText = `[AI AFFILIATE OPTIMIZER]\n\nORIGINAL: 'Buy
-  these shoes'\n\nOPTIMIZED: ${item}\n\nCONVERSION PROBABILITY: 94%`;
+  these shoes'\n\nOPTIMIZED: ${item}\n\nSCORE: 94%`;
     } else if (type === 'audit') {
       consoleEl.innerText = `[SYSTEM HEALTH AUDIT]\n\n- Load Time: 0.38s
-   (⚡ Ultra Fast)\n- Mobile Responsiveness: 100%\n- Payment Gateway:
-  Active\n- Conversion Funnel: Optimized\n\nRESULT: All systems
-  operational. Revenue flow is optimal.`;
+   (Fast)\n- Mobile: 100%\n- Payment: Active\n\nRESULT: Operational.`;
     }
-
     statusEl.innerText = "COMPLETE";
     statusEl.style.color = "#00ffaa";
   }
 
-  // Mock RSS News
   function updateNews() {
     const feed = document.getElementById('rss-feed');
+    if(!feed) return;
     const news = [
       "Madrid Legends: Zidane's tactical secrets revealed!",
-      "Ronaldo reaches new goal milestone in league play.",
-      "Messi's vision: New heatmap analysis released.",
-      "Coach's Vault updated with 5 new session plans!"
+      "Ronaldo reaches new goal milestone!",
+      "Messi's vision: New heatmap released.",
+      "Coach's Vault updated with new session plans!"
     ];
     feed.innerHTML = news.map(n => `<div style="margin-bottom:10px;
   padding-bottom:5px; border-bottom:1px solid #eee; font-size:13px;">⚽
   ${n}</div>`).join('');
   }
-
   setInterval(updateNews, 6000);
-  updateNews();
+  window.onload = updateNews;
   </script>
   </body>
   </html>
+ 
